@@ -1,0 +1,44 @@
+# Core LangChain packages
+langchain-core==0.3.29
+langchain-community==0.3.29
+langchain-huggingface==0.1.2
+langgraph==0.2.60
+langchain-openai==0.2.14
+
+# Vector database and embeddings
+faiss-cpu==1.9.0.post1
+sentence-transformers==3.3.1
+FlagEmbedding==1.2.11
+
+# Data processing
+pandas==2.2.3
+openpyxl==3.1.5
+xlrd==2.0.1
+unstructured[xlsx]==0.16.9
+
+# Environment and configuration
+python-dotenv==1.0.1
+
+# MCP (Model Context Protocol) support
+fastmcp==2.8.1
+mcp==1.9.4
+
+# Type checking and utilities
+typing-extensions==4.12.2
+aiofiles==24.1.0
+
+# Scientific computing
+numpy==2.1.3
+scipy==1.14.1
+
+# Machine learning frameworks
+torch==2.5.1
+transformers==4.47.0
+tokenizers==0.21.0
+
+# System utilities
+pathlib2==2.3.7.post1  # For enhanced path handling
+
+# Testing
+pytest==8.3.4
+pytest-asyncio==0.24.0

@@ -1,0 +1,271 @@
+# ===== 隐私和敏感文件 =====
+# 环境变量配置文件（包含API密钥）
+.env
+.env.local
+.env.*.local
+
+# 文件注册表（可能包含敏感路径信息）
+file_registry.json
+
+# ===== 用户数据和上传文件 =====
+# 用户上传的Excel文件
+uploads/
+uploads/*
+
+# ===== 向量数据库和AI模型相关 =====
+# FAISS向量数据库文件
+Faiss/
+Faiss/*
+*.faiss
+*.pkl
+vector_db_metadata.json
+
+# ===== 列映射配置文件 =====
+# 动态生成的列映射配置
+column_mapping_docs/
+column_mapping_docs/*
+column_mapping_config.json
+
+# ===== 缓存文件 =====
+# 表头缓存
+cache/
+cache/*
+
+# ===== 数据库文件 =====
+# SQLite数据库
+*.db
+*.sqlite
+*.sqlite3
+database.db
+
+# ===== Python相关 =====
+# 字节码缓存
+__pycache__/
+*.py[cod]
+*$py.class
+
+# 分发/打包
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# PyInstaller
+*.manifest
+*.spec
+
+# 单元测试/覆盖率报告
+htmlcov/
+.tox/
+.nox/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+*.py,cover
+.hypothesis/
+.pytest_cache/
+cover/
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# IPython
+profile_default/
+ipython_config.py
+
+# pyenv
+.python-version
+
+# pipenv
+Pipfile.lock
+
+# poetry
+poetry.lock
+
+# pdm
+.pdm.toml
+
+# PEP 582
+__pypackages__/
+
+# Celery
+celerybeat-schedule
+celerybeat.pid
+
+# SageMath parsed files
+*.sage.py
+
+# 虚拟环境
+venv/
+env/
+ENV/
+env.bak/
+venv.bak/
+.venv/
+
+# Spyder项目设置
+.spyderproject
+.spyproject
+
+# Rope项目设置
+.ropeproject
+
+# mkdocs文档
+/site
+
+# mypy
+.mypy_cache/
+.dmypy.json
+dmypy.json
+
+# Pyre类型检查器
+.pyre/
+
+# pytype静态类型分析器
+.pytype/
+
+# Cython调试符号
+cython_debug/
+
+# ===== IDE和编辑器 =====
+# VSCode
+.vscode/
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+!.vscode/*.code-snippets
+
+# PyCharm
+.idea/
+*.iws
+*.iml
+*.ipr
+
+# Sublime Text
+*.sublime-workspace
+*.sublime-project
+
+# Vim
+*.swp
+*.swo
+*~
+
+# Emacs
+*~
+\#*\#
+/.emacs.desktop
+/.emacs.desktop.lock
+*.elc
+auto-save-list
+tramp
+.\#*
+
+# ===== 操作系统 =====
+# Windows
+Thumbs.db
+Thumbs.db:encryptable
+ehthumbs.db
+ehthumbs_vista.db
+*.stackdump
+[Dd]esktop.ini
+$RECYCLE.BIN/
+*.cab
+*.msi
+*.msix
+*.msm
+*.msp
+*.lnk
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+Icon
+._*
+.DocumentRevisions-V100
+.fseventsd
+.Spotlight-V100
+.TemporaryItems
+.Trashes
+.VolumeIcon.icns
+.com.apple.timemachine.donotpresent
+.AppleDB
+.AppleDesktop
+Network Trash Folder
+Temporary Items
+.apdisk
+
+# Linux
+*~
+.fuse_hidden*
+.directory
+.Trash-*
+.nfs*
+
+# ===== 日志文件 =====
+*.log
+logs/
+
+# ===== 临时文件 =====
+*.tmp
+*.temp
+*.bak
+*.backup
+*.orig
+
+# ===== 项目特定的调试文件 =====
+# 调试目录（可选择性忽略）
+# debug/
+
+# ===== Trae AI IDE 相关 =====
+.trae/
+
+# ===== 其他敏感或不需要版本控制的文件 =====
+# 配置文件可能包含敏感信息
+config.json
+config.yaml
+config.yml
+settings.json
+
+# 密钥文件
+*.key
+*.pem
+*.p12
+*.pfx
+
+# 证书文件
+*.crt
+*.cer
+*.der
+
+# 压缩文件
+*.zip
+*.tar.gz
+*.rar
+*.7z
+
+# 大型数据文件
+*.csv
+*.xlsx
+*.xls
+!requirements.txt
+!README.md
+!*.md
