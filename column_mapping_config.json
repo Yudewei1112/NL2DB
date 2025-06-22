@@ -1,0 +1,26 @@
+{
+  "enable_incremental_updates": true,
+  "auto_generate_on_startup": true,
+  "max_tables_per_batch": 50,
+  "log_level": "info",
+  "mapping_directory": "column_mapping_docs",
+  "excluded_tables": [
+    "sqlite_sequence",
+    "file_versions",
+    "table_mappings",
+    "enhanced_table_mappings"
+  ],
+  "llm_settings": {
+    "max_retries": 3,
+    "timeout_seconds": 30
+  },
+  "_comments": {
+    "enable_incremental_updates": "是否启用增量更新",
+    "auto_generate_on_startup": "启动时是否自动生成",
+    "max_tables_per_batch": "每次处理的最大表数量",
+    "log_level": "日志级别",
+    "mapping_directory": "映射文件存储目录",
+    "excluded_tables": "排除的表名列表",
+    "llm_settings": "LLM相关设置"
+  }
+}

@@ -24,7 +24,6 @@ vector_db_metadata.json
 # 动态生成的列映射配置
 column_mapping_docs/
 column_mapping_docs/*
-column_mapping_config.json
 
 # ===== 缓存文件 =====
 # 表头缓存
