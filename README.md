@@ -612,7 +612,7 @@ python debug/benchmark.py
 
 ```bash
 # 1. Fork项目
-git fork https://github.com/Yudewei1112/NL2DB.git
+git fork https://github.com/your-username/NL2DB.git
 
 # 2. 创建功能分支
 git checkout -b feature/your-feature

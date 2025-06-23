@@ -525,5 +525,5 @@ print(f"清理了 {orphaned_count} 个孤立表")
 ## 🔗 相关文档
 
 - [README.md](README.md) - 项目总体说明
-# - [enhanced_column_mapping_usage.md](enhanced_column_mapping_usage.md) - 列名映射说明（已删除）
+- [COLUMN_MAPPING_README.md] - 列名映射说明
 - [NL2DB流程.md](NL2DB流程.md) - 系统流程说明

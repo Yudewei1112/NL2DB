@@ -318,6 +318,7 @@ print(json.dumps(status, indent=2, ensure_ascii=False))
 - 查看日志文件获取详细错误信息
 - 运行测试脚本验证系统状态
 - 检查配置文件格式和内容
+- 联系我们 [Email](mailto:yudewei1112@gmail.com)
 
 **版本**: v2.0.0  
 **更新时间**: 2025-06-22  
