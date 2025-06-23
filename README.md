@@ -10,7 +10,7 @@
 
 **🌟 基于大模型的下一代智能数据查询引擎 🌟**
 
-*将自然语言转换为精确的数据库查询，让数据分析变得像聊天一样简单*
+*将自然语言转换为精确的数据库查询，让Excel数据查询变得像聊天一样简单*
 
 [🎯 快速开始](#-快速开始) • [✨ 核心特性](#-核心特性) • [🏗️ 系统架构](#️-系统架构) • [📖 使用指南](#-使用指南) • [🔧 API文档](#-api文档)
 
@@ -18,10 +18,13 @@
 
 ---
 
-## 🎯 项目愿景
+## 🎯 项目概要
 
-**NL2DB** 是一种高精度的自然语言EXCEL文档数据查询MCP服务，它打破了传统数据分析的技术壁垒。通过先进的大语言模型和向量检索技术，让任何人都能用自然语言轻松查询复杂的Excel数据，无需学习SQL或复杂的数据分析工具。
-使用过向量检索的都知道，对于复杂的Excel文档，经第三方库解析excel再chunk后，难以将真正的表头信息与数据相管理，导致检索成功率低。本项目将复杂的excel文档向量检索或关键词检索转化成使用SQL语句的精准数据库检索，大大提高了检索成功率：
+**NL2DB** 是一种高精准度的自然语言EXCEL文档数据查询MCP服务，它打破了传统数据分析的技术壁垒。通过先进的大语言模型和向量检索技术，让任何人都能用自然语言轻松查询复杂的Excel数据，无需学习SQL或复杂的数据分析工具。
+使用过向量检索的都知道，对于复杂的Excel文档，经Excel解析再chunk后，难以将真正的表头信息与数据相关联，导致检索成功率低。
+本项目将复杂的excel文档向量检索或关键词检索转化成使用SQL语句的精准数据库检索，大大提高了检索成功率。
+<font color="red">[📋 了解系统流程点这里](./NL2DB流程.md)</font>
+另外，本代码保留了所有调试输出语句，可以方便查看每一个步骤的输出情况。
 
 ### 📸 效果展示
 
@@ -108,7 +111,6 @@
 ### 📋 核心工作流
 
 ```mermaid
-基于LangGraph框架
 框架：LangGraph框架
 大模型：用可选配置的方式引入，支持GLM/OpenAI/Qwen等模型。
 中文向量化模型：m3e-base模型
@@ -202,7 +204,7 @@ cp .env.example .env
 
 ```env
 # 🤖 大模型配置 (选择一个)
-LLM_PROVIDER=glm  # 可选: glm, openai, qwen
+LLM_PROVIDER=glm  # 可选: Glm, DeepSeek, Qwen, Claude, OpenAI
 LLM_MODEL_NAME=glm-4-plus
 LLM_TEMPERATURE=0.2
 
@@ -211,19 +213,27 @@ LLM_TEMPERATURE=0.2
 GLM_4_PLUS_API_KEY=your_glm_api_key
 GLM_4_PLUS_API_BASE=https://open.bigmodel.cn/api/paas/v4/
 
-# OpenAI配置（可选）
-OPENAI_API_KEY=your_openai_api_key
-OPENAI_BASE_URL=https://api.openai.com/v1
+# DeepSeek 配置
+DEEPSEEK_API_KEY=your_deepseek_api_key_here
+DEEPSEEK_API_BASE=https://api.deepseek.com
 
 # Qwen配置（可选）
 QWEN_API_KEY=your_qwen_api_key
 QWEN_API_BASE=https://dashscope.aliyuncs.com/api/v1
+
+# Claude配置（可选）
+CLAUDE_API_KEY=your_claude_api_key
+CLAUDE_API_BASE=https://api.anthropic.com/v1
+
+# OpenAI配置（可选）
+OPENAI_API_KEY=your_openai_api_key
+OPENAI_BASE_URL=https://api.openai.com/v1
 ```
 
 ### 🎯 快速启动
 
 ```bash
-# 🚀 启动MCP服务（强烈推荐）
+# 🚀 启动MCP服务（首次启动强烈推荐！！）
 python start_mcp_server.py
 # 系统将自动创建Faiss，column_mapping_docs等文件夹
 # 或直接运行
@@ -428,13 +438,15 @@ NL2DB/
 │   └── excel_header_prompt.txt       # 表头识别提示词
 ├── 📖 文档
 │   ├── README.md                     # 项目说明
-│   ├── NL2DB流程.md                  # 系统流程说明
+│   ├── NL2DB流程.md                   # 系统流程说明
 │   ├── DATABASE_HANDLING.md          # 数据库处理说明
 │   └── COLUMN_MAPPING_README.md      # 列名映射说明
 ├── 🧪 测试调试
 │   └── debug/                        # 调试脚本目录
 │       ├── test_mcp_client.py        # MCP客户端测试
-│       └── generate_column_mappings.py  # 列名映射生成器调试脚本等其它脚本
+│       ├── fix_database_issue.py     # 修复数据库问题脚本
+│       ├── reinitialize_database.py  # 重新初始化数据库脚本
+│       └── generate_column_mappings.py  # 列名映射生成器调试脚本
 └── 🖼️ 资源文件
     └── images/                       # 项目截图
 ```
@@ -479,6 +491,8 @@ NL2DB/
 | **🧠 GLM-4-Plus** | 智谱AI | 中文优化，推理能力强 |
 | **🤖 GPT-4** | OpenAI | 通用能力强，生态完善 |
 | **🔮 Qwen-Turbo** | 阿里云 | 高性价比，响应快速 |
+| **💻 DeepSeek-v3** | DeepSeek | 代码生成专家，开源友好 |
+| **🎭 Claude-3-7-Sonnet** | Anthropic | 安全可靠，推理精准 |
 
 ---
 
@@ -560,7 +574,7 @@ venv/
 ### 🆕 添加新模型支持
 
 ```python
-# 在 ModelManager._create_llm() 中添加
+# 在NL2DB.py的 ModelManager._create_llm() 中添加
 elif provider == "your_provider":
     from your_langchain_provider import YourChatModel
     return YourChatModel(
@@ -651,7 +665,7 @@ git push origin feature/your-feature
 [![GitHub Forks](https://img.shields.io/github/forks/Yudewei1112/NL2DB?style=social&label=Fork)](https://github.com/Yudewei1112/NL2DB)
 [![GitHub Watchers](https://img.shields.io/github/watchers/Yudewei1112/NL2DB?style=social&label=Watch)](https://github.com/Yudewei1112/NL2DB)
 
-**让数据查询变得像聊天一样简单！**
+**让复杂EXCEL文档数据查询变得像聊天一样简单！**
 
 [🏠 首页](https://github.com/Yudewei1112/NL2DB) • [📖 文档](https://github.com/Yudewei1112/NL2DB/wiki) • [🐛 问题反馈](https://github.com/Yudewei1112/NL2DB/issues) • [💬 社区讨论](https://github.com/Yudewei1112/NL2DB/discussions)
 
@@ -671,6 +685,6 @@ git push origin feature/your-feature
 
 **🚀 NL2DB - 让AI为你的数据赋能！ 🚀**
 
-*Built with ❤️ by the NL2DB Team*
+*Built with ❤️ by the Yu Dewei*
 
 </div>

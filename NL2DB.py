@@ -99,6 +99,22 @@ class ModelManager:
                 model_name=config.get("model_name", "qwen-turbo"),
                 temperature=config.get("temperature", 0.2)
             )
+        elif provider == "deepseek":
+            from langchain_openai import ChatOpenAI
+            return ChatOpenAI(
+                openai_api_key=os.getenv("DEEPSEEK_API_KEY"),
+                base_url=os.getenv("DEEPSEEK_API_BASE"),
+                model=config.get("model_name", "deepseek-coder"),
+                temperature=config.get("temperature", 0.2)
+            )
+        elif provider == "claude":
+            from langchain_anthropic import ChatAnthropic
+            return ChatAnthropic(
+                anthropic_api_key=os.getenv("CLAUDE_API_KEY"),
+                base_url=os.getenv("CLAUDE_API_BASE"),
+                model=config.get("model_name", "claude-3-7-sonnet"),
+                temperature=config.get("temperature", 0.2)
+            )
         else:
             print("Using mock LLM.")
             async def mock_llm(messages, config=None):
