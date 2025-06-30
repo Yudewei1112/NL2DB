@@ -8,9 +8,9 @@
 [![License](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![GitHub Stars](https://img.shields.io/github/stars/your-username/NL2DB?style=social)](https://github.com/your-username/NL2DB)
 
-**🌟 基于大模型的下一代智能数据查询引擎 🌟**
+**🌟 基于大模型的Excel数据查询引擎 🌟**
 
-*将自然语言转换为精确的数据库查询，让Excel数据查询变得像聊天一样简单*
+*将Excel数据查询转换为精确的数据库查询，让Excel数据查询变得像聊天一样简单*
 
 [🎯 快速开始](#-快速开始) • [✨ 核心特性](#-核心特性) • [🏗️ 系统架构](#️-系统架构) • [📖 使用指南](#-使用指南) • [🔧 API文档](#-api文档)
 
